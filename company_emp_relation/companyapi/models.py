@@ -15,9 +15,18 @@ class Company(models.Model):
 
 
 
+class Employee(models.Model):
+    emp_name =models.CharField(max_length=100)
+    emp_email = models.CharField(max_length=50)
+    emp_address = models.CharField(max_length=200)
+    emp_phone = models.CharField(max_length=10)
+    emp_about = models.TextField()
+    emp_position = models.CharField(max_length=50, choices=(('Manager','Manager'),
+                                                            ('Software Developer','Software Developer'),
+                                                            ('Project Leader','Project Leader')
+                                                            ))
 
-
-
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
 
 
